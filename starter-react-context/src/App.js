@@ -1,11 +1,11 @@
 import "./App.css";
 import DataContextProvider from "./context/DataContext";
-import AppRouter from "./routing/AppRouter";
+import AppRoutes from "./routing/AppRoutes";
 
 function App() {
   return (
     <DataContextProvider>
-      <AppRouter />
+      <AppRoutes />
     </DataContextProvider>
   );
 }

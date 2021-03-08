@@ -1,7 +1,4 @@
-import React, { Component } from 'react';
-import render from 'react-dom';
-import { Route, Redirect } from "react-router-dom";
-import { withRouter } from "react-router";
+import React from 'react';
 
 const NotFound = () => {
     return (

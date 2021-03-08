@@ -22,9 +22,9 @@ export const FacebookButton = ({
 }) => {
   className = `btn btn-lg btn-primary w-100 ${className}`.trim();
   return (
-    <Button name={name} className={className} {...rest}>
+    <button name={name} className={className} {...rest}>
       {text}
-    </Button>
+    </button>
   );
 };
 
