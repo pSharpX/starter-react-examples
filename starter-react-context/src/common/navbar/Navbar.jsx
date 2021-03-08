@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "../../shared/search/SearchBox";
 import { SecureButton } from "../../auth/secure/PrivateRoute";
 // import withAuthorization from "../../../core/auth/withAutorization";
-import { DataContext } from "../../context/DataContext";
 
 export default function AppNavbar() {
-  const [data, setData] = useContext(DataContext);
-
   const handlerSearch = (event) => {
     event.preventDefault();
     const value = event.target.input.value;
