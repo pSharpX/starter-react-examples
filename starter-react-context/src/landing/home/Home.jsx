@@ -10,6 +10,7 @@ function Home() {
             HeaderBox={<span>This is the header box section</span>}>
             {/* <SecureButton />
             <ItemList /> */}
+            <p>This is home page, welcome !!</p>
         </MainLayout>
     );
 }

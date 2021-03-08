@@ -1,14 +1,16 @@
-import React, { Component, useContext } from 'react';
-import DataContext from '../../../context/DataContext';
+import React, { useContext } from "react";
+import { DataContext } from "../../context/DataContext";
 
-export default function Footer() {
-    const [info, setInfo] = useContext(DataContext);
+function Footer() {
+  const [data, setData] = useContext(DataContext);
 
-    return (
-        <footer className="footer">
-            <div className="container" >
-                <span className="text-muted">Nombre: {info.nombre}.</span>
-            </div>
-        </footer>
-    );
+  return (
+    <footer className="footer mt-auto py-3 bg-light">
+      <div className="container">
+        <span className="text-muted">Place sticky footer content here. Nombre: {data.nombre}.</span>
+      </div>
+    </footer>
+  );
 }
+
+export default Footer;

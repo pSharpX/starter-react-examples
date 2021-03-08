@@ -5,7 +5,7 @@ const initialData = {
   apellido: "Rivera",
 };
 
-const DataContext = React.createContext();
+export const DataContext = React.createContext();
 
 function DataContextProvider(props) {
   const [data, setData] = useState(initialData);

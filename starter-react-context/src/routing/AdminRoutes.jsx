@@ -1,5 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import Header from "../common/header/Header";
+import Footer from "../common/footer/Footer";
 import About from "../landing/about/About";
 import Contact from "../landing/contact/Contact";
 import Home from "../landing/home/Home";
@@ -14,8 +16,9 @@ import PrivateRoute from "../auth/secure/PrivateRoute";
 import NotFound from "../common/error/NotFound";
 
 const AdminRoutes = ({ match }) => (
-  <div className="container">
-    <main>
+  <div className="App">
+    <Header />
+    <main className="container">
       <Switch>
         <PrivateRoute path={`${match.url}/`} component={Home} />
         <Route path={`${match.url}about`} component={About} />
@@ -34,6 +37,7 @@ const AdminRoutes = ({ match }) => (
         <Route path="*" component={NotFound} />
       </Switch>
     </main>
+    <Footer />
   </div>
 );
 

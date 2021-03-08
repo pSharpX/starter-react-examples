@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../logo.svg";
 
-function MainLayout({ HeaderBox }) {
+function MainLayout({ HeaderBox, children }) {
   return (
     <div className="container">
       <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-react rounded shadow-sm">
@@ -19,7 +19,7 @@ function MainLayout({ HeaderBox }) {
 
       <div className="my-3 p-3 bg-white rounded shadow-sm">
         <h6 className="border-bottom border-gray pb-2 mb-4">Main Box</h6>
-        {this.props.children}
+        {children}
       </div>
     </div>
   );
