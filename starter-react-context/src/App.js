@@ -1,18 +1,12 @@
 import "./App.css";
-import Main from "./main/Main";
-
-const initialData = {
-  nombre: "Jose",
-  apellido: "Rivera",
-};
+import DataContextProvider from "./context/DataContext";
+import AppRouter from "./routing/AppRouter";
 
 function App() {
-  const [info, setInfo] = useState(initialData);
-
   return (
-    <DataContext.Provider value={[info, setInfo]}>
-      <Main />
-    </DataContext.Provider>
+    <DataContextProvider>
+      <AppRouter />
+    </DataContextProvider>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router';
-import AppMain from '../Main/AppMain';
+import AppMain from '../main/AppMain';
 
 export default class AppLayout extends Component {
     render() {

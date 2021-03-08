@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import AppNavbar from '../Navbar/AppNavbar';
-import ScrollerMenu from '../Menu/ScrollerMenu';
+import AppNavbar from '../navbar/Navbar';
+import ScrollerMenu from '../menu/ScrollerMenu';
 import DataContext from '../../../context/DataContext';
 
 

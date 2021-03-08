@@ -1,15 +1,11 @@
 import React from "react";
 import { Switch, Route } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-
-import "./Main.css";
-
-import App from "./App";
-import SignUpContainer from "./bundles/pages/auth/SignUpContainer";
-import LogInContainer from "./bundles/pages/auth/LogInContainer";
 import NotFound from "./bundles/common/components/Error/NotFound";
+import LogInContainer from "../auth/signin/LogInContainer";
+import SignUpContainer from "../auth/signup/SignUpContainer";
 
-function Main() {
+function AppRouter() {
   return (
     <BrowserRouter>
       <Switch>
@@ -23,4 +19,4 @@ function Main() {
 }
 
 // export default withAuthentication(AppBase);
-export default Main;
+export default AppRouter;
