@@ -1,17 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import LogIn from "./LogIn";
 // import * as authentication from '../../core/auth/aws-auth';
 
-
-class LogInContainer extends Component {
-
-  componentDidMount = () => { };
-
-  handleLogIn = async (event) => {
+function LogInContainer() {
+  const handleLogIn = async (event) => {
     event.preventDefault();
     const { inputEmail, inputPassword } = event.target.elements;
     // const { changeUserAuthenticationState } = this.props;
     try {
+      alert(JSON.stringify({ inputEmail, inputPassword }));
       // const user = await auth.doSignInWithEmailAndPassword(inputEmail.value, inputPassword.value);
       // const user = await authentication.doSignIn(inputEmail.value, inputPassword.value);
       // changeUserAuthenticationState({
@@ -25,17 +22,14 @@ class LogInContainer extends Component {
       //   user: undefined
       // });
     }
-  }
+  };
 
-  afterSuccessfulLogIn = (response) => {
+  const afterSuccessfulLogIn = (response) => {
     console.log(response);
     this.props.history.push("/");
-  }
+  };
 
-  render() {
-    return <LogIn onSubmit={this.handleLogIn} afterLogIn={this.afterSuccessfulLogIn} />;
-  }
-
+  return <LogIn onSubmit={handleLogIn} afterLogIn={afterSuccessfulLogIn} />;
 }
 
 export default LogInContainer;

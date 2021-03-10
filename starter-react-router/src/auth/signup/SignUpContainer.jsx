@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import SignUp from "./SignUp";
 // import { auth } from '../../core/auth';
 
-class SignUpContainer extends Component {
-  componentDidMount = () => {};
-
-  handleSignUp = async (event) => {
+function SignUpContainer() {
+  const handleSignUp = async (event) => {
     event.preventDefault();
     const { inputEmail, inputPassword } = event.target.elements;
     try {
+      alert(JSON.stringify({ inputEmail, inputPassword }));
       // const user = await auth.doCreateUserWithEmailAndPassword(inputEmail.value, inputPassword.value);
       // this.props.history.push("/");
     } catch (error) {
@@ -16,10 +15,8 @@ class SignUpContainer extends Component {
     }
   };
 
-  render() {
-    return <SignUp onSubmit={this.handleSignUp} />;
-  }
+  return <SignUp onSubmit={this.handleSignUp} />;
 }
 
-export default SignUpContainer;
 // export default withRouter(SignUpContainer);
+export default SignUpContainer;
