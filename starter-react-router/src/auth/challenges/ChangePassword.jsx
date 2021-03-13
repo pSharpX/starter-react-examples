@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "../signup/SignUp.css";
 import { Auth } from "aws-amplify";
 import { useHistory } from "react-router-dom";
-import { ObjectUtils } from "../../utill/util";
+import { ObjectUtils } from "../../util/util";
 import { DataContext } from "../../context/DataContext";
 import { requiredAttributesHomologator } from "../auth.constants";
 

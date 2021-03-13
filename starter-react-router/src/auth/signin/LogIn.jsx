@@ -4,7 +4,7 @@ import "../signup/SignUp.css";
 import { Auth } from "aws-amplify";
 import { useHistory } from "react-router-dom";
 import { challengeType } from "../auth.constants";
-import { ObjectUtils } from "../../utill/util";
+import { ObjectUtils } from "../../util/util";
 import { DataContext } from "../../context/DataContext";
 import * as actions from "../../context/actions";
 
