@@ -1,19 +1,16 @@
-import React, { useState } from "react";
-
-const initialData = {
-  nombre: "Jose",
-  apellido: "Rivera",
-};
+import React, { useReducer } from "react";
+import reducer from "./reducer";
+import initialState from "./state";
 
 export const DataContext = React.createContext();
 
-function DataContextProvider(props) {
-  const [data, setData] = useState(initialData);
+const DataContextProvider = (props) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <DataContext.Provider value={[data, setData]}>
+    <DataContext.Provider value={[state, dispatch]}>
       {props.children}
     </DataContext.Provider>
   );
-}
+};
 
 export default DataContextProvider;
