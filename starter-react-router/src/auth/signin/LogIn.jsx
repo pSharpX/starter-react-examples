@@ -1,10 +1,57 @@
-import React from "react";
+import React, { useContext } from "react";
 import FacebookSignInContainer from "../../shared/controls/FacebookButton";
 import "../signup/SignUp.css";
+import { Auth } from "aws-amplify";
+import { useHistory } from "react-router-dom";
+import { challengeType } from "../auth.constants";
+import { ObjectUtils } from "../../utill/util";
+import { DataContext } from "../../context/DataContext";
+import * as actions from "../../context/actions";
 
-function LogIn({ onSubmit, afterLogIn }) {
+function LogIn() {
+  const history = useHistory();
+  const [state, dispatch] = useContext(DataContext);
+
+  const challengeResolver = (challengeName, user) => {
+    switch (challengeName) {
+      case challengeType.NEW_PASSWORD_REQUIRED: {
+        dispatch(actions.saveUserCognitoData(user));
+        history.push("/changePassword");
+        break;
+      }
+      case challengeType.CUSTOM_CHALLENGE: {
+        break;
+      }
+      case undefined:
+      case null:
+      case "":
+        redirectToHome();
+        break;
+      default:
+        throw new Error("no such challenge name recognize exception");
+    }
+  };
+
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+    const { inputEmail, inputPassword } = event.target.elements;
+    try {
+      const user = await Auth.signIn(inputEmail.value, inputPassword.value);
+
+      if (!ObjectUtils.empty(user)) {
+        challengeResolver(user.challengeName, user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const redirectToHome = () => {
+    history.push("/");
+  };
+
   return (
-    <form className="form-signin" onSubmit={onSubmit}>
+    <form className="form-signin" onSubmit={handleOnSubmit}>
       <div className="text-center mb-4">
         <img
           className="mb-4"
@@ -23,7 +70,7 @@ function LogIn({ onSubmit, afterLogIn }) {
         </p>
       </div>
       <div className="form-label-group">
-        <FacebookSignInContainer onLogin={afterLogIn} />
+        <FacebookSignInContainer onLogin={redirectToHome} />
       </div>
 
       <div className="form-label-group">
