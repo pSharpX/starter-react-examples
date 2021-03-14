@@ -16,7 +16,7 @@ function LogIn() {
     switch (challengeName) {
       case challengeType.NEW_PASSWORD_REQUIRED: {
         dispatch(actions.saveUserCognitoData(user));
-        history.push("/changePassword");
+        redirectToChangePassword();
         break;
       }
       case challengeType.CUSTOM_CHALLENGE: {
@@ -25,6 +25,7 @@ function LogIn() {
       case undefined:
       case null:
       case "":
+        dispatch(actions.saveUserCognitoData(user));
         redirectToHome();
         break;
       default:
@@ -46,9 +47,9 @@ function LogIn() {
     }
   };
 
-  const redirectToHome = () => {
-    history.push("/");
-  };
+  const redirectToChangePassword = () => history.push("/changePassword");
+
+  const redirectToHome = () => history.push("/");
 
   return (
     <form className="form-signin" onSubmit={handleOnSubmit}>
