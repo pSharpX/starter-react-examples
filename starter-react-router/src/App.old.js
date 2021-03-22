@@ -7,6 +7,8 @@ import Nosotros from "./example/Nosotros";
 import Informacion from "./example/Informacion";
 import UsuarioPerfil from "./example/UsuarioPerfil";
 import UsuarioPublico from "./example/UsuarioPublico";
+import ProtectedRoute from "./example/ProtectedRoute";
+import IniciarSesion from "./example/IniciarSesion";
 
 function App2() {
   return (
@@ -14,6 +16,9 @@ function App2() {
       <BrowserRouter>
         <div className="App">
           <header>
+          <NavLink to="/login" className="pr-2">
+              Iniciar Sesion
+            </NavLink>
             <NavLink to="/contactos" className="pr-2">
               Contactos
             </NavLink>
@@ -37,6 +42,7 @@ function App2() {
 
           <div className="container mt-4">
             <Switch>
+              <Route path="/login" component={IniciarSesion} />
               <Route
                 path="/informacion/:name/:lastname"
                 component={Informacion}
@@ -54,7 +60,7 @@ function App2() {
                 )}
               />
               <Route path="/usuario/publico" component={UsuarioPublico} />
-              <Route path="/usuario/:name" component={UsuarioPerfil} />
+              <ProtectedRoute path="/usuario/:name" component={UsuarioPerfil} />
               <Route
                 path="*"
                 render={() => <div>Ruta no encontrada - 404</div>}
